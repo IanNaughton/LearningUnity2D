@@ -4,21 +4,27 @@ using UnityEngine;
 
 public class M4 : MonoBehaviour
 {
-    public Transform FirePoint;
-    public GameObject BulletPrefab;
+  public Transform FirePoint;
+  public GameObject BulletPrefab;
+  public FireTimer FireRateTimer;
 
-    // Update is called once per frame
-    void Update()
+  // Update is called once per frame
+  void Update()
+  {
+    if (Input.GetButton("Fire1"))
     {
-        if (Input.GetButtonDown("Fire1"))
-        {
-            Shoot();
-        }
+      if (FireRateTimer.IsDone)
+      {
+        FireRateTimer.Reset();
+        StartCoroutine(FireRateTimer.StartTimerAsCoroutine());
+        Shoot();
+      }
     }
+  }
 
-    void Shoot()
-    {
-        // Shoosting logic
-        Instantiate(BulletPrefab, FirePoint.position, FirePoint.rotation);
-    }
+  void Shoot()
+  {
+    // Shoosting logic
+    Instantiate(BulletPrefab, FirePoint.position, FirePoint.rotation);
+  }
 }

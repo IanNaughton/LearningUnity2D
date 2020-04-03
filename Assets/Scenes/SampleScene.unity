@@ -211,6 +211,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1870237860}
     m_Modifications:
+    - target: {fileID: -1178503322345230755, guid: 9225dd6da2c300c49bc1bc7b48644bd6,
+        type: 3}
+      propertyPath: FireRateTimer
+      value: 
+      objectReference: {fileID: 560225337}
     - target: {fileID: 519093413946651034, guid: 9225dd6da2c300c49bc1bc7b48644bd6,
         type: 3}
       propertyPath: m_Name
@@ -219,7 +224,7 @@ PrefabInstance:
     - target: {fileID: 3523833510350231631, guid: 9225dd6da2c300c49bc1bc7b48644bd6,
         type: 3}
       propertyPath: m_SortingOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4317981165675872283, guid: 9225dd6da2c300c49bc1bc7b48644bd6,
         type: 3}
@@ -299,6 +304,27 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 560225334}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &560225336 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 519093413946651034, guid: 9225dd6da2c300c49bc1bc7b48644bd6,
+    type: 3}
+  m_PrefabInstance: {fileID: 560225334}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &560225337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 560225336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0006b9db979584a6bb56069ba7c5471c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Elapsed: 0
+  WaitTime: 0.15
+  IsDone: 1
 --- !u!1 &595883984
 GameObject:
   m_ObjectHideFlags: 0
@@ -2731,7 +2757,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 72de0c64f2c6a498096698322c976a67, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
