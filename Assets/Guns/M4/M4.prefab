@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4828964437962534500}
   - component: {fileID: 1224155500551908889}
   - component: {fileID: -4648803529492593392}
+  - component: {fileID: 6293722094797436632}
   m_Layer: 0
   m_Name: M4
   m_TagString: Untagged
@@ -98,6 +99,22 @@ MonoBehaviour:
   FirePoint: {fileID: 6346650994758340326}
   BulletPrefab: {fileID: 398596163742972643, guid: b8e9cdd57e89860439f77a11b5b42715,
     type: 3}
+  FireRateTimer: {fileID: 6293722094797436632}
+--- !u!114 &6293722094797436632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3409036841109200680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0006b9db979584a6bb56069ba7c5471c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Elapsed: 0
+  WaitTime: 0.1
+  IsDone: 1
 --- !u!1 &7677307387410925359
 GameObject:
   m_ObjectHideFlags: 0
