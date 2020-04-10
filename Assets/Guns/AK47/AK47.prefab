@@ -10,7 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4317981165675872283}
   - component: {fileID: 3523833510350231631}
-  - component: {fileID: -1178503322345230755}
+  - component: {fileID: 5450363143835806139}
+  - component: {fileID: 5558312393600417644}
+  - component: {fileID: 7810258562508315598}
   m_Layer: 0
   m_Name: AK47
   m_TagString: Untagged
@@ -83,7 +85,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-1178503322345230755
+--- !u!114 &5450363143835806139
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -98,6 +100,40 @@ MonoBehaviour:
   FirePoint: {fileID: 1781062234298143781}
   BulletPrefab: {fileID: 398596163742972643, guid: b8e9cdd57e89860439f77a11b5b42715,
     type: 3}
+  Chamber: {fileID: 5558312393600417644}
+  BananaCleep: {fileID: 7810258562508315598}
+  BulletSpeed: 30
+--- !u!114 &5558312393600417644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519093413946651034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d66660cc167a384f9bfaf25b95ad35d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FireDuration: 0.5
+  IsFiring: 0
+--- !u!114 &7810258562508315598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519093413946651034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a52bc32993effb849beb67da2309ef86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Size: 30
+  CurrentBullets: 30
+  ReloadDuration: 3
+  IsReloading: 0
+  IsEmpty: 0
 --- !u!1 &5465746228694016218
 GameObject:
   m_ObjectHideFlags: 0

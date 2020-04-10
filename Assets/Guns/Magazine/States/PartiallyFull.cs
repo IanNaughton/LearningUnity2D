@@ -2,8 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-
-public class PartiallyFull : MonoBehaviour, IMagazineState
+public class PartiallyFull : IMagazineState
 {
     public void Shoot(Magazine magazine)
     {
@@ -14,13 +13,17 @@ public class PartiallyFull : MonoBehaviour, IMagazineState
         else
         {
             Debug.Log("*Click*");
+            magazine.IsEmpty = true;
             magazine.CurrentState = new Empty();
         }
     }
-
     public IEnumerator Reload(Magazine magazine)
     {
-        magazine.CurrentState = new Reloading();
-        yield return null;
+        magazine.IsReloading = true;
+        yield return new WaitForSeconds(magazine.ReloadDuration);
+        magazine.CurrentBullets = magazine.Size;
+        magazine.IsEmpty = false;
+        magazine.CurrentState = new Full();
+        magazine.IsReloading = false;
     }
 }

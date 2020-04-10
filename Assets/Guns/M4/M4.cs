@@ -16,7 +16,7 @@ public class M4 : MonoBehaviour
       if (FireRateTimer.IsDone)
       {
         FireRateTimer.Reset();
-        StartCoroutine(FireRateTimer.StartTimerAsCoroutine());
+        //StartCoroutine(FireRateTimer.StartTimerAsCoroutine());
         Shoot();
       }
     }

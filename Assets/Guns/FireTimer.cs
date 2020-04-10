@@ -13,7 +13,7 @@ public class FireTimer : MonoBehaviour
     IsDone = false;
     Elapsed = 0f;
   }
-  public IEnumerator StartTimerAsCoroutine()
+  public IEnumerator StartTimer()
   {
     while (Elapsed <= WaitTime)
     {

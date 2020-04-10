@@ -6,7 +6,7 @@ public class AK47 : MonoBehaviour
 {
     public Transform FirePoint;
     public GameObject BulletPrefab;
-    public FireTimer FireRateTimer;
+    public Chamber Chamber;
     public Magazine BananaCleep;
     public float BulletSpeed = 0f;
 
@@ -15,25 +15,24 @@ public class AK47 : MonoBehaviour
     {
         if (Input.GetButton("Fire1"))
         {
-            if (FireRateTimer.IsDone)
-            {
-                FireRateTimer.Reset();
-                StartCoroutine(FireRateTimer.StartTimerAsCoroutine());
-                Shoot();
-            }
+            Shoot();
         }
-        if (Input.GetButton("Reload"))
-        {
-            Reload();
-        }
-
-
     }
 
     void Shoot()
     {
-        CreateBullet();
-        BananaCleep.Shoot();
+        if (BananaCleep.IsEmpty) 
+        {
+            StartCoroutine(BananaCleep.Reload());
+        }
+
+        if (!Chamber.IsFiring && 
+            !BananaCleep.IsEmpty && 
+            !BananaCleep.IsReloading)
+        {
+            StartCoroutine(Chamber.Shoot(BananaCleep));
+            CreateBullet();
+        }
     }
 
     void CreateBullet()

@@ -215,7 +215,12 @@ PrefabInstance:
         type: 3}
       propertyPath: FireRateTimer
       value: 
-      objectReference: {fileID: 560225337}
+      objectReference: {fileID: 0}
+    - target: {fileID: -1178503322345230755, guid: 9225dd6da2c300c49bc1bc7b48644bd6,
+        type: 3}
+      propertyPath: BananaCleep
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 519093413946651034, guid: 9225dd6da2c300c49bc1bc7b48644bd6,
         type: 3}
       propertyPath: m_Name
@@ -296,7 +301,13 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.2
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 5450363143835806139, guid: 9225dd6da2c300c49bc1bc7b48644bd6,
+        type: 3}
+      propertyPath: BulletSpeed
+      value: 20
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 3779619876810156112, guid: 9225dd6da2c300c49bc1bc7b48644bd6, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9225dd6da2c300c49bc1bc7b48644bd6, type: 3}
 --- !u!4 &560225335 stripped
 Transform:
@@ -304,27 +315,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 560225334}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &560225336 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 519093413946651034, guid: 9225dd6da2c300c49bc1bc7b48644bd6,
-    type: 3}
-  m_PrefabInstance: {fileID: 560225334}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &560225337
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 560225336}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0006b9db979584a6bb56069ba7c5471c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Elapsed: 0
-  WaitTime: 0.15
-  IsDone: 1
 --- !u!1 &595883984
 GameObject:
   m_ObjectHideFlags: 0
