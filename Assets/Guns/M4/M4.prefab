@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 4828964437962534500}
   - component: {fileID: 1224155500551908889}
   - component: {fileID: -4648803529492593392}
+  - component: {fileID: 7922903571014564985}
+  - component: {fileID: 2982129098364585798}
   m_Layer: 0
   m_Name: M4
   m_TagString: Untagged
@@ -71,7 +73,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: bf0bb348512122348a3e2f24b4af1eb7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -98,7 +100,42 @@ MonoBehaviour:
   FirePoint: {fileID: 6346650994758340326}
   BulletPrefab: {fileID: 398596163742972643, guid: b8e9cdd57e89860439f77a11b5b42715,
     type: 3}
-  FireRateTimer: {fileID: 0}
+  Chamber: {fileID: 7922903571014564985}
+  Clip: {fileID: 2982129098364585798}
+  BulletSpeed: 35
+  BulletRotationMax: 0.5
+  BulletRotationMin: 0.5
+--- !u!114 &7922903571014564985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3409036841109200680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d66660cc167a384f9bfaf25b95ad35d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FireDuration: 0.1
+  IsFiring: 0
+--- !u!114 &2982129098364585798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3409036841109200680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a52bc32993effb849beb67da2309ef86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Size: 30
+  CurrentBullets: 30
+  ReloadDuration: 2.5
+  IsReloading: 0
+  IsEmpty: 0
 --- !u!1 &7677307387410925359
 GameObject:
   m_ObjectHideFlags: 0
