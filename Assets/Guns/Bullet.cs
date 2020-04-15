@@ -22,7 +22,10 @@ public class Bullet : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D hitInfo)
     {
-        //Debug.Log(hitInfo.name);
-        Destroy(gameObject);
+        Debug.Log(hitInfo.name);
+        if (hitInfo.name != "Boolet(Clone)")
+        {
+            Destroy(gameObject);
+        }
     }
 }

@@ -44,6 +44,7 @@ public class M4 : MonoBehaviour
         var bullet = bulletPrefabInstance.GetComponent<Bullet>();
 
         // Set bullet attributes unique to this gun
+        bullet.gameObject.layer = gameObject.layer;
         bullet.Speed = BulletSpeed;
         bullet.RotationMax = BulletRotationMax;
         bullet.RotationMin = BulletRotationMin;
