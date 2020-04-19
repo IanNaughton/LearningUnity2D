@@ -9,6 +9,7 @@ public class M4 : MonoBehaviour
     public Chamber Chamber;
     public Magazine Clip;
     public float BulletSpeed = 0f;
+    public float BulletRange = 0f;
     public float BulletRotationMax = 0f;
     public float BulletRotationMin = 0f;
 
@@ -46,6 +47,7 @@ public class M4 : MonoBehaviour
         // Set bullet attributes unique to this gun
         bullet.gameObject.layer = gameObject.layer;
         bullet.Speed = BulletSpeed;
+        bullet.Range = BulletRange;
         bullet.RotationMax = BulletRotationMax;
         bullet.RotationMin = BulletRotationMin;
     }

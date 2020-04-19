@@ -104,6 +104,7 @@ MonoBehaviour:
   Clip: {fileID: -3007928138808010182}
   NumberOfBullets: 5
   BulletSpeed: 20
+  BulletRange: 50
   BulletRotationMax: 1.5
   BulletRotationMin: -1.5
 --- !u!114 &7693226074861517093

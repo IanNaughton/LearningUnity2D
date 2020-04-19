@@ -12,10 +12,15 @@ public class Magazine : MonoBehaviour
     public bool IsEmpty = false;
     public IMagazineState CurrentState;
 
-    Magazine() 
+    Magazine()
     {
         CurrentState = new Full();
     }
+    public void OnEnable()
+    {
+        CurrentState.Init(this);
+    }
+
     public void Shoot()
     {
         CurrentState.Shoot(this);
@@ -25,5 +30,6 @@ public class Magazine : MonoBehaviour
     {
         return CurrentState.Reload(this);
     }
+
 
 }

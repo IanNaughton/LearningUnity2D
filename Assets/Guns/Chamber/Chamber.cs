@@ -5,12 +5,15 @@ public class Chamber : MonoBehaviour
 {
     public float FireDuration = 0f;
     public bool IsFiring = false;
-
-    public IEnumerator Shoot(Magazine magazine) 
+    public void OnEnable()
     {
-      IsFiring = true;
-      yield return new WaitForSeconds(FireDuration);
-      magazine.Shoot();
-      IsFiring = false;
+        IsFiring = false;
+    }
+    public IEnumerator Shoot(Magazine magazine)
+    {
+        IsFiring = true;
+        yield return new WaitForSeconds(FireDuration);
+        magazine.Shoot();
+        IsFiring = false;
     }
 }

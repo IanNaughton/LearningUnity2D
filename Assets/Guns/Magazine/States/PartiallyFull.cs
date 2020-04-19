@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class PartiallyFull : IMagazineState
 {
+    public void Init(Magazine magazine)
+    {
+        magazine.IsEmpty = false;
+        magazine.IsReloading = false;
+        magazine.CurrentState = new Full();
+    }
     public void Shoot(Magazine magazine)
     {
         if (magazine.CurrentBullets >= 1)

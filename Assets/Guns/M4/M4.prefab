@@ -103,6 +103,7 @@ MonoBehaviour:
   Chamber: {fileID: 7922903571014564985}
   Clip: {fileID: 2982129098364585798}
   BulletSpeed: 35
+  BulletRange: 50
   BulletRotationMax: 0.5
   BulletRotationMin: 0.5
 --- !u!114 &7922903571014564985
