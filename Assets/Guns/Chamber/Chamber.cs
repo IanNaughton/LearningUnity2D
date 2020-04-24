@@ -12,8 +12,8 @@ public class Chamber : MonoBehaviour
     public IEnumerator Shoot(Magazine magazine)
     {
         IsFiring = true;
-        yield return new WaitForSeconds(FireDuration);
         magazine.Shoot();
+        yield return new WaitForSeconds(FireDuration);
         IsFiring = false;
     }
 }

@@ -10,6 +10,7 @@ public class Magazine : MonoBehaviour
     public float ReloadDuration = 0f;
     public bool IsReloading = false;
     public bool IsEmpty = false;
+    public ReloadBar ReloadBar;
     public IMagazineState CurrentState;
 
     Magazine()

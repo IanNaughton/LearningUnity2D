@@ -138,7 +138,8 @@ MonoBehaviour:
   CurrentBullets: 30
   ReloadDuration: 3
   IsReloading: 0
-  IsEmpty: 0
+  IsEmpty: 1
+  ReloadBar: {fileID: 6475591615127290296}
 --- !u!114 &6475591615127290296
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -151,8 +152,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28c4a2953fd1cc04a9fba11c796f9bba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Slider: {fileID: 0}
-  Magazine: {fileID: 0}
+  maxValue: 300
+  minValue: 0
+  Slider: {fileID: 5241420856344783999}
 --- !u!1 &5465746228694016218
 GameObject:
   m_ObjectHideFlags: 0
@@ -364,3 +366,15 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2701435741269836178}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5241420856344783999 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7908366033309658605, guid: 473a7a0cb5ad9104c9b900a1a55dabca,
+    type: 3}
+  m_PrefabInstance: {fileID: 2701435741269836178}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5241420856344783997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
