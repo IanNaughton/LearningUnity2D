@@ -21,12 +21,10 @@ public class Magazine : MonoBehaviour
     {
         CurrentState.Init(this);
     }
-
     public void Shoot()
     {
         CurrentState.Shoot(this);
     }
-
     public IEnumerator Reload()
     {
         return CurrentState.Reload(this);
