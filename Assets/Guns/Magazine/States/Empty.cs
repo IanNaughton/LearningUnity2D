@@ -20,11 +20,10 @@ public class Empty : MonoBehaviour, IMagazineState
         if (!magazine.IsReloading)
         {
             magazine.IsReloading = true;
-            yield return StartCoroutine(magazine.ReloadBar.Reload());
+            yield return magazine.ReloadBar.Reload();
             magazine.CurrentBullets = magazine.Size;
             magazine.IsEmpty = false;
             magazine.CurrentState = new Full();
             magazine.IsReloading = false;
         }
     }
-}
