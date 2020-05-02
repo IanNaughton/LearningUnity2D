@@ -6,7 +6,15 @@ using UnityEngine.UI;
 public class ReloadBar : MonoBehaviour
 {
     public Slider Slider;
-    void Start()
+    public IEnumerator Reload()
     {
+        var currentValue = 0f;
+        while (currentValue < Slider.maxValue)
+        {
+            Slider.value = currentValue;
+            currentValue += Time.deltaTime;
+            yield return null;
+        }
+        Slider.value = Slider.minValue;
     }
 }
