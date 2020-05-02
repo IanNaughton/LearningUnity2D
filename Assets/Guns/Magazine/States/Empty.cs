@@ -27,3 +27,4 @@ public class Empty : MonoBehaviour, IMagazineState
             magazine.IsReloading = false;
         }
     }
+}

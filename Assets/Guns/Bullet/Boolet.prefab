@@ -96,6 +96,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8efa257710479b4a9e05d76893fd243, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ImpactEffect: {fileID: 1586871297342281642, guid: 9de669ce963c592a4bfb1180729b3b59,
+    type: 3}
   Speed: 20
   RotationMax: 0
   RotationMin: 0
