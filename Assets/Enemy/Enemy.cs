@@ -6,10 +6,10 @@ using System;
 
 public class Enemy : MonoBehaviour
 {
-
     public float Speed;
     public Rigidbody2D EnemyBody;
-    // Start is called before the first frame update
+    public GameObject RightWallCollider;
+    public GameObject LeftWallCollider;
     void Start()
     {
 
@@ -24,10 +24,14 @@ public class Enemy : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        // Are we getting hit by a boolet?!
-        if (collision.gameObject.tag == Constants.Tags.PROJECTILE)
+        Debug.Log(collision.gameObject.name);
+        if (collision.gameObject.name == "Foreground")
         {
-            Debug.Log($"colliding with: {collision.gameObject.tag}");
+            Speed = Speed * -1;
+        }
+        if (collision.gameObject.name == "Boolet(Clone)")
+        {
+            Destroy(gameObject);
         }
     }
 
