@@ -106,7 +106,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!58 &6510760651012536069
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -135,7 +135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 216f8246a4bf08f4b82ea5b4d3a2d2ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 25
+  Speed: 0.5
   EnemyBody: {fileID: 361784029985574694}
   RightWallCollider: {fileID: 8901315664848450795}
   LeftWallCollider: {fileID: 6740052402718080174}
