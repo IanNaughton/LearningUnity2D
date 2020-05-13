@@ -33,6 +33,10 @@ public class Enemy : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        if (collision.gameObject.name == "Destroyer")
+        {
+            Destroy(gameObject);
+        }
     }
 
     void OnCollisionEnter2D(Collision2D collision)

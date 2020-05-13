@@ -8,6 +8,7 @@ public class Spawner : MonoBehaviour
   public float WaveDuration;
   public int NumberOfInstances;
   public float TimeBetweenInstance;
+  public SpawnerDirection WaveDirection;
   void Start()
   {
     StartCoroutine(SpawnWave());
@@ -19,15 +20,25 @@ public class Spawner : MonoBehaviour
 
   public IEnumerator SpawnWave()
   {
+    // Infinitely loop creating waves
     while (true)
     {
+      // Spawn the individual entities that make up a wave
       for (int i = 0; i < NumberOfInstances; i++)
       {
-        Instantiate(ThingToSpawn, transform.position, transform.rotation);
+        var instance = Instantiate(ThingToSpawn, transform.position, transform.rotation);
+        var enemy = instance.GetComponent<Enemy>();
+        enemy.Speed = GetSpeed(enemy.Speed);
         yield return new WaitForSeconds(TimeBetweenInstance);
       }
+      WaveDirection = WaveDirection == SpawnerDirection.Right ? SpawnerDirection.Left : SpawnerDirection.Right;
       yield return new WaitForSeconds(WaveDuration);
     }
+  }
+
+  public float GetSpeed(float speed)
+  {
+    return WaveDirection == SpawnerDirection.Left ? speed * -1 : speed;
   }
 }
 
