@@ -12,6 +12,7 @@ public class Bullet : MonoBehaviour
     private Vector3 StartPosition;
     public float DistanceTraveled = 0f;
     public float Range = 0f;
+    public float Damage = 0f;
 
     void Start()
     {

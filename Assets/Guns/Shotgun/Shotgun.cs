@@ -2,17 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Shotgun : MonoBehaviour
+public class Shotgun : GunBase
 {
-    public Transform FirePoint;
-    public GameObject BulletPrefab;
-    public Chamber Chamber;
-    public Magazine Clip;
     public float NumberOfBullets = 0f;
-    public float BulletSpeed = 0f;
-    public float BulletRange = 0f;
-    public float BulletRotationMax = 0f;
-    public float BulletRotationMin = 0f;
 
     // Update is called once per frame
     void Update()
@@ -23,7 +15,7 @@ public class Shotgun : MonoBehaviour
         }
     }
 
-    void Shoot()
+    public override void Shoot()
     {
         if (Clip.IsEmpty)
         {
@@ -39,7 +31,7 @@ public class Shotgun : MonoBehaviour
         }
     }
 
-    void CreateBullet()
+    public override void CreateBullet()
     {
         for (int i = 0; i <= NumberOfBullets; i++)
         {
@@ -54,11 +46,5 @@ public class Shotgun : MonoBehaviour
             bullet.RotationMax = BulletRotationMax;
             bullet.RotationMin = BulletRotationMin;
         }
-    }
-
-
-    IEnumerator Reload()
-    {
-        return Clip.Reload();
     }
 }

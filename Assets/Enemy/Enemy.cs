@@ -10,6 +10,7 @@ public class Enemy : MonoBehaviour
     public Rigidbody2D EnemyBody;
     public GameObject RightWallCollider;
     public GameObject LeftWallCollider;
+    public float Hitpoints;
     void Start()
     {
 
@@ -31,6 +32,7 @@ public class Enemy : MonoBehaviour
         }
         if (collision.gameObject.name == "Boolet(Clone)")
         {
+            TakeDamage(collision.gameObject);
             Destroy(gameObject);
         }
         if (collision.gameObject.name == "Destroyer")
@@ -39,8 +41,9 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    void TakeDamage(GameObject weapon)
     {
-
+        var bullet = weapon.GetComponent<Bullet>();
+        Hitpoints = Hitpoints - bullet.Damage;
     }
 }
