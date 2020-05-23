@@ -107,6 +107,8 @@ MonoBehaviour:
   BulletRange: 50
   BulletRotationMax: 0.5
   BulletRotationMin: 0.5
+  Range: 50
+  Damage: 10
 --- !u!114 &7922903571014564985
 MonoBehaviour:
   m_ObjectHideFlags: 0

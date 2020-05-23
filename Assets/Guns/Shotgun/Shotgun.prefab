@@ -103,11 +103,13 @@ MonoBehaviour:
     type: 3}
   Chamber: {fileID: 7448801837154204002}
   Clip: {fileID: 5132077724026389442}
-  NumberOfBullets: 5
   BulletSpeed: 30
   BulletRange: 30
   BulletRotationMax: 2
   BulletRotationMin: -2
+  Range: 30
+  Damage: 25
+  NumberOfBullets: 5
 --- !u!114 &7448801837154204002
 MonoBehaviour:
   m_ObjectHideFlags: 0

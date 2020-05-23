@@ -139,6 +139,7 @@ MonoBehaviour:
   EnemyBody: {fileID: 361784029985574694}
   RightWallCollider: {fileID: 8901315664848450795}
   LeftWallCollider: {fileID: 6740052402718080174}
+  Hitpoints: 100
 --- !u!1 &6740052402718080174
 GameObject:
   m_ObjectHideFlags: 0

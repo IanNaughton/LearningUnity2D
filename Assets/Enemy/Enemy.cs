@@ -33,7 +33,6 @@ public class Enemy : MonoBehaviour
         if (collision.gameObject.name == "Boolet(Clone)")
         {
             TakeDamage(collision.gameObject);
-            Destroy(gameObject);
         }
         if (collision.gameObject.name == "Destroyer")
         {
@@ -45,5 +44,9 @@ public class Enemy : MonoBehaviour
     {
         var bullet = weapon.GetComponent<Bullet>();
         Hitpoints = Hitpoints - bullet.Damage;
+        if (Hitpoints <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }

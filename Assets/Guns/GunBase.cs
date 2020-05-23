@@ -13,9 +13,10 @@ public class GunBase : MonoBehaviour
     public float BulletRotationMax = 0f;
     public float BulletRotationMin = 0f;
     public float Range = 0f;
+    public float Damage = 0f;
 
     // Update is called once per frame
-    void Update()
+    public virtual void Update()
     {
         if (Input.GetButton("Fire1"))
         {
@@ -51,6 +52,7 @@ public class GunBase : MonoBehaviour
         bullet.Range = BulletRange;
         bullet.RotationMax = BulletRotationMax;
         bullet.RotationMin = BulletRotationMin;
+        bullet.Damage = Damage;
     }
 
     public virtual IEnumerator Reload()

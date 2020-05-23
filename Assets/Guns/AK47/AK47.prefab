@@ -102,12 +102,13 @@ MonoBehaviour:
   BulletPrefab: {fileID: 398596163742972643, guid: b8e9cdd57e89860439f77a11b5b42715,
     type: 3}
   Chamber: {fileID: 5558312393600417644}
-  BananaCleep: {fileID: 7810258562508315598}
+  Clip: {fileID: 7810258562508315598}
   BulletSpeed: 30
   BulletRange: 50
   BulletRotationMax: 1.5
   BulletRotationMin: -1.5
-  Range: 0
+  Range: 50
+  Damage: 25
 --- !u!114 &5558312393600417644
 MonoBehaviour:
   m_ObjectHideFlags: 0
