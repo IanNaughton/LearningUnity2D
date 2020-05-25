@@ -11,12 +11,16 @@ public class Enemy : MonoBehaviour
     public GameObject RightWallCollider;
     public GameObject LeftWallCollider;
     public float Hitpoints;
+    public GameObject DamageNumberPrefab;
+    public Transform DamageNumberSpawnPoint;
+
+    public GameObject DeathEffect;
+
     void Start()
     {
 
     }
 
-    // Update is called once per frame
     void Update()
     {
         // move the enemy 
@@ -43,9 +47,23 @@ public class Enemy : MonoBehaviour
     void TakeDamage(GameObject weapon)
     {
         var bullet = weapon.GetComponent<Bullet>();
-        Hitpoints = Hitpoints - bullet.Damage;
+        ShowDamageNumber(bullet.Damage);
+        ApplyHitpoints(bullet.Damage);
+    }
+
+    void ShowDamageNumber(float damageAmount)
+    {
+        var damageNumberPrefab = Instantiate(DamageNumberPrefab, DamageNumberSpawnPoint.position, DamageNumberSpawnPoint.rotation);
+        var damageNumber = damageNumberPrefab.GetComponent<DamageNumber>();
+        damageNumber.DamageAmount = damageAmount;
+    }
+
+    void ApplyHitpoints(float damageAmount)
+    {
+        Hitpoints = Hitpoints - damageAmount;
         if (Hitpoints <= 0)
         {
+            Instantiate(DeathEffect, transform.position, transform.rotation);
             Destroy(gameObject);
         }
     }

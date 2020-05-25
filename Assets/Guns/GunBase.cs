@@ -22,6 +22,10 @@ public class GunBase : MonoBehaviour
         {
             Shoot();
         }
+        if (Input.GetButton("Reload"))
+        {
+            Reload();
+        }
     }
 
     public virtual void Shoot()
@@ -55,9 +59,9 @@ public class GunBase : MonoBehaviour
         bullet.Damage = Damage;
     }
 
-    public virtual IEnumerator Reload()
+    public virtual void Reload()
     {
-        return Clip.Reload();
+        StartCoroutine(Clip.Reload());
     }
 
 }

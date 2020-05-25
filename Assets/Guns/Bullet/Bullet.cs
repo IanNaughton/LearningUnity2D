@@ -58,6 +58,7 @@ public class Bullet : MonoBehaviour
         // Gotta make sure that bullets don't end eachother by colliding!
         if (hitInfo.name != "Boolet(Clone)")
         {
+            Instantiate(ImpactEffect, transform.position, transform.rotation);
             Destroy(gameObject);
         }
     }

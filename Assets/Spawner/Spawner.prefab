@@ -48,4 +48,4 @@ MonoBehaviour:
   WaveDuration: 30
   NumberOfInstances: 3
   TimeBetweenInstance: 0.5
-  Direction: 1
+  WaveDirection: 0

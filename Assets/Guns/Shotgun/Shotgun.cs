@@ -7,7 +7,7 @@ public class Shotgun : GunBase
     public float NumberOfBullets = 0f;
 
     // Update is called once per frame
-    void Update()
+    public override void Update()
     {
         if (Input.GetButton("Fire1"))
         {
@@ -45,6 +45,7 @@ public class Shotgun : GunBase
             bullet.Range = BulletRange;
             bullet.RotationMax = BulletRotationMax;
             bullet.RotationMin = BulletRotationMin;
+            bullet.Damage = Damage;
         }
     }
 }

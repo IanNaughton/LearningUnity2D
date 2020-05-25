@@ -33,6 +33,7 @@ Transform:
   m_Children:
   - {fileID: 8194844853639582412}
   - {fileID: 9105101956069130166}
+  - {fileID: 2830846339114300665}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -140,6 +141,11 @@ MonoBehaviour:
   RightWallCollider: {fileID: 8901315664848450795}
   LeftWallCollider: {fileID: 6740052402718080174}
   Hitpoints: 100
+  DamageNumberPrefab: {fileID: 8314034311862029117, guid: 9b9704ba9d9458a4ab8a19cbe2ca0842,
+    type: 3}
+  DamageNumberSpawnPoint: {fileID: 2830846339114300665}
+  DeathEffect: {fileID: 7516735174199231800, guid: 12e922b6bc9341e4aa6007bc2aad5b86,
+    type: 3}
 --- !u!1 &6740052402718080174
 GameObject:
   m_ObjectHideFlags: 0
@@ -187,6 +193,36 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.0001
+--- !u!1 &8767868636231057856
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2830846339114300665}
+  m_Layer: 0
+  m_Name: DamageNumberSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2830846339114300665
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8767868636231057856}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.0009, y: 0.045, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7533338385147532929}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8901315664848450795
 GameObject:
   m_ObjectHideFlags: 0
