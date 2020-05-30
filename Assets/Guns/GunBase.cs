@@ -15,6 +15,13 @@ public class GunBase : MonoBehaviour
     public float Range = 0f;
     public float Damage = 0f;
 
+    private ObjectPool _objectPool;
+
+    public virtual void Start()
+    {
+        _objectPool = ObjectPool.Instance;
+    }
+
     // Update is called once per frame
     public virtual void Update()
     {
@@ -47,7 +54,8 @@ public class GunBase : MonoBehaviour
     public virtual void CreateBullet()
     {
         // Shoosting logic
-        var bulletPrefabInstance = Instantiate(BulletPrefab, FirePoint.position, FirePoint.rotation);
+        //var bulletPrefabInstance = Instantiate(BulletPrefab, FirePoint.position, FirePoint.rotation);
+        var bulletPrefabInstance = _objectPool.SpawnObject("Bullet", FirePoint.position, FirePoint.rotation);
         var bullet = bulletPrefabInstance.GetComponent<Bullet>();
 
         // Set bullet attributes unique to this gun
