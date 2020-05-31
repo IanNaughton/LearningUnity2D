@@ -13,7 +13,6 @@ public class Enemy : MonoBehaviour
     public float Hitpoints;
     public GameObject DamageNumberPrefab;
     public Transform DamageNumberSpawnPoint;
-
     public GameObject DeathEffect;
 
     void Start()
