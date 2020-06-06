@@ -14,8 +14,11 @@ public class Bullet : MonoBehaviour
     public float Range = 0f;
     public float Damage = 0f;
 
+    private ObjectPool _objectPool;
+
     void Start()
     {
+        _objectPool = ObjectPool.Instance;
         StartPosition = transform.position;
         MoveBullet();
         PointBulletInMovementDirection();
@@ -49,7 +52,8 @@ public class Bullet : MonoBehaviour
             // Before we blow away the bullet instance, create an instance of the 
             // impact effect.
             Instantiate(ImpactEffect, transform.position, transform.rotation);
-            Destroy(gameObject);
+            //Destroy(gameObject);
+            _objectPool.RemoveObject("Bullet", gameObject);
         }
     }
 
@@ -59,7 +63,7 @@ public class Bullet : MonoBehaviour
         if (hitInfo.name != "Boolet(Clone)")
         {
             Instantiate(ImpactEffect, transform.position, transform.rotation);
-            Destroy(gameObject);
+            _objectPool.RemoveObject("Bullet", gameObject);
         }
     }
 }

@@ -27,8 +27,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 398596163742972643}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -5.5509357, y: -0.548643, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -98,12 +98,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ImpactEffect: {fileID: 1586871297342281642, guid: 9de669ce963c592a4bfb1180729b3b59,
     type: 3}
-  Speed: 20
-  RotationMax: 0
-  RotationMin: 0
+  Speed: 30
+  RotationMax: 1.5
+  RotationMin: -1.5
   rb: {fileID: 92692724453028504}
   DistanceTraveled: 0
-  Range: 0
+  Range: 50
+  Damage: 25
 --- !u!50 &92692724453028504
 Rigidbody2D:
   serializedVersion: 4

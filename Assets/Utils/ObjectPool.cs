@@ -22,12 +22,15 @@ public class ObjectPool : MonoBehaviour
   // This feels kind of dumb--we're relying on some framework magic here
   // that I would argue makes this implementation brittle.
   private void Awake() {
+    Debug.Log("Waking Up!");
     Instance = this;
+    Debug.Log("Woke AF");
   }
   public Dictionary<string, Queue<GameObject>> PooledObjects;
 
   void Start()
   {
+    var tempPool = new Dictionary<string, Queue<GameObject>>();
     foreach (var pool in ObjectsToPool)
     {
       var objectPool = new Queue<GameObject>();
@@ -35,19 +38,22 @@ public class ObjectPool : MonoBehaviour
       {
           var objectToPool = Instantiate(pool.ObjectToPool);
           objectToPool.SetActive(false);
-          objectPool.Enqueue(pool.ObjectToPool);
+          objectPool.Enqueue(objectToPool);
       }
-      PooledObjects.Add(pool.Key, objectPool);
+      tempPool.Add(pool.Key, objectPool);
     }
+    PooledObjects = tempPool;
   }
+
 
   public GameObject SpawnObject(string tag, Vector2 position, Quaternion rotation)
   {
+    Debug.Log($"Spawning Object with tag {tag}");
     var objectToSpawn = PooledObjects[tag].Dequeue();
     objectToSpawn.SetActive(true);
     objectToSpawn.transform.position = position;
     objectToSpawn.transform.rotation = rotation;
-    
+    Debug.Log($"Spawned object {objectToSpawn.name}");
 
     PooledObjects[tag].Enqueue(objectToSpawn);
     return objectToSpawn;
@@ -55,6 +61,7 @@ public class ObjectPool : MonoBehaviour
 
   public void RemoveObject(string tag, GameObject objectToPool)
   {
+    objectToPool.SetActive(false);
     PooledObjects[tag].Enqueue(objectToPool);
   }
 }

@@ -29,7 +29,6 @@ public class Enemy : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(collision.gameObject.name);
         if (collision.gameObject.name == "Foreground")
         {
             Speed = Speed * -1;
