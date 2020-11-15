@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 
@@ -10,6 +9,7 @@ public class Empty : MonoBehaviour, IMagazineState
         magazine.IsReloading = false;
         magazine.CurrentState = new Full();
     }
+
     public void Shoot(Magazine magazine)
     {
         Debug.Log("Click");

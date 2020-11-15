@@ -13,22 +13,23 @@ public class Magazine : MonoBehaviour
     public ReloadBar ReloadBar;
     public IMagazineState CurrentState;
 
-    Magazine()
+    private Magazine()
     {
         CurrentState = new Full();
     }
+
     public void OnEnable()
     {
         CurrentState.Init(this);
     }
+
     public void Shoot()
     {
         CurrentState.Shoot(this);
     }
+
     public IEnumerator Reload()
     {
         return CurrentState.Reload(this);
     }
-
-
 }

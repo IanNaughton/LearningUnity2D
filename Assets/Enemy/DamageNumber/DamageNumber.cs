@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class DamageNumber : MonoBehaviour
@@ -13,12 +11,13 @@ public class DamageNumber : MonoBehaviour
     public float LeftDriftMax = -150f;
     public float Speed = 30.0f;
 
-    void Start()
+    private void Start()
     {
         DamageText.text = DamageAmount.ToString();
         MoveDamageText();
     }
-    void MoveDamageText()
+
+    private void MoveDamageText()
     {
         var drift = Random.Range(LeftDriftMax, RightDriftMax);
         rb.AddForce(new Vector2(drift, Speed));

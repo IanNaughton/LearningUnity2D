@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GunBase : MonoBehaviour
@@ -25,14 +23,14 @@ public class GunBase : MonoBehaviour
     // Update is called once per frame
     public virtual void Update()
     {
-        if (Input.GetButton("Fire1"))
-        {
-            Shoot();
-        }
-        if (Input.GetButton("Reload"))
-        {
-            Reload();
-        }
+        //if (Input.GetButton("Fire1"))
+        //{
+        //    Shoot();
+        //}
+        //if (Input.GetButton("Reload"))
+        //{
+        //    Reload();
+        //}
     }
 
     public virtual void Shoot()
@@ -54,8 +52,8 @@ public class GunBase : MonoBehaviour
     public virtual void CreateBullet()
     {
         // Shoosting logic
-        //var bulletPrefabInstance = Instantiate(BulletPrefab, FirePoint.position, FirePoint.rotation);
-        var bulletPrefabInstance = _objectPool.SpawnObject("Bullet", FirePoint.position, FirePoint.rotation);
+        var bulletPrefabInstance = Instantiate(BulletPrefab, FirePoint.position, FirePoint.rotation);
+        //var bulletPrefabInstance = _objectPool.SpawnObject("Bullet", FirePoint.position, FirePoint.rotation);
         var bullet = bulletPrefabInstance.GetComponent<Bullet>();
 
         // Set bullet attributes unique to this gun
@@ -71,5 +69,4 @@ public class GunBase : MonoBehaviour
     {
         StartCoroutine(Clip.Reload());
     }
-
 }

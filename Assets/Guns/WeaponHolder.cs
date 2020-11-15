@@ -1,53 +1,49 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class WeaponHolder : MonoBehaviour
 {
-  int SelectedWeapon = 0;
-  int WeaponCount => transform.childCount - 1;
-  // Start is called before the first frame update
-  void Start()
-  {
-    SetActiveWeapon();
-  }
+    private int SelectedWeapon = 0;
+    int WeaponCount => transform.childCount - 1;
 
-  // Update is called once per frame
-  void Update()
-  {
-    HandlePlayerInput();
-  }
-
-  void SetActiveWeapon()
-  {
-    // This entire thing feels like a gigantic hack. No type safety 
-    // and 
-    var weaponIndex = 0;
-    foreach (Transform weapon in transform)
+    // Start is called before the first frame update
+    private void Start()
     {
-      weapon.gameObject.SetActive(weaponIndex == SelectedWeapon);
-      weaponIndex++;
-    }
-  }
-
-  void HandlePlayerInput()
-  {
-    if (Input.GetButtonDown("SwapWeapon"))
-    {
-        CycleWeapons();
         SetActiveWeapon();
     }
-  }
 
-  void CycleWeapons()
-  {
-    if (SelectedWeapon != WeaponCount)
+    // Update is called once per frame
+    private void Update()
     {
-      SelectedWeapon++;
+        // HandlePlayerInput();
     }
-    else
+
+    private void SetActiveWeapon()
     {
-      SelectedWeapon = 0;
+        // This entire thing feels like a gigantic hack. No type safety
+        // and
+        var weaponIndex = 0;
+        foreach (Transform weapon in transform)
+        {
+            weapon.gameObject.SetActive(weaponIndex == SelectedWeapon);
+            weaponIndex++;
+        }
     }
-  }
+
+    public void Use()
+    {
+        var selectedWeapon = transform.GetChild(SelectedWeapon);
+        selectedWeapon.GetComponent<GunBase>().Shoot();
+    }
+
+    private void CycleWeapons()
+    {
+        if (SelectedWeapon != WeaponCount)
+        {
+            SelectedWeapon++;
+        }
+        else
+        {
+            SelectedWeapon = 0;
+        }
+    }
 }

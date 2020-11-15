@@ -1,35 +1,31 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-
     public PlayerController controller;
 
     public float runSpeed = 40f;
-    float horizontalMovement = 0f;
-    bool jump = false;
+    public float horizontalMovement = 0f;
+    public bool jump = false;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        horizontalMovement = Input.GetAxisRaw("Horizontal") * runSpeed;
-        if (Input.GetButtonDown("Jump"))
-        {
-            jump = true;
-        }
+        //horizontalMovement = Input.GetAxisRaw("Horizontal") * runSpeed;
+        //if (Input.GetButtonDown("Jump"))
+        //{
+        //    jump = true;
+        //}
     }
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
-        controller.Move(horizontalMovement * Time.fixedDeltaTime, false, jump);
+        controller.Move(horizontalMovement * runSpeed * Time.fixedDeltaTime, false, jump);
         jump = false;
     }
 }

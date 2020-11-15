@@ -1,7 +1,5 @@
-﻿
-
-public enum SpawnerDirection
+﻿public enum SpawnerDirection
 {
-   Right = 1,
-   Left = -1
+    Right = 1,
+    Left = -1
 }

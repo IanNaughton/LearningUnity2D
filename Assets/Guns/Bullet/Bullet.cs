@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
@@ -16,7 +14,7 @@ public class Bullet : MonoBehaviour
 
     private ObjectPool _objectPool;
 
-    void Start()
+    private void Start()
     {
         _objectPool = ObjectPool.Instance;
         StartPosition = transform.position;
@@ -24,46 +22,49 @@ public class Bullet : MonoBehaviour
         PointBulletInMovementDirection();
     }
 
-    void MoveBullet()
+    private void MoveBullet()
     {
         var recoil = Random.Range(RotationMin, RotationMax);
         rb.velocity = new Vector2(transform.right.x * Speed, transform.up.y * recoil);
     }
 
-    void PointBulletInMovementDirection()
+    private void PointBulletInMovementDirection()
     {
-        // This is basically stolen code because I didn't pay attention in 
+        // This is basically stolen code because I didn't pay attention in
         // geometry and don't remember my trig functions. I'm a dumb-dumb.
         // TODO: GIT GUD AT MATH
         var angle = Mathf.Atan2(rb.velocity.y, rb.velocity.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
     }
 
-    void Update()
+    private void Update()
     {
         CheckDistanceTraveled();
     }
 
-    void CheckDistanceTraveled()
+    private void CheckDistanceTraveled()
     {
         DistanceTraveled += Vector3.Distance(StartPosition, transform.position);
         if (DistanceTraveled >= Range)
         {
-            // Before we blow away the bullet instance, create an instance of the 
+            // Before we blow away the bullet instance, create an instance of the
             // impact effect.
             Instantiate(ImpactEffect, transform.position, transform.rotation);
-            //Destroy(gameObject);
-            _objectPool.RemoveObject("Bullet", gameObject);
+            gameObject.SetActive(false);
+            Destroy(gameObject);
         }
     }
 
-    void OnTriggerEnter2D(Collider2D hitInfo)
+    private void OnTriggerEnter2D(Collider2D hitInfo)
     {
-        // Gotta make sure that bullets don't end eachother by colliding!
-        if (hitInfo.name != "Boolet(Clone)")
+        // Gotta make sure that bullets don't end eachother by colliding!      
+        var hitObject = hitInfo.gameObject.GetComponent<IShootable>();
+        if (hitObject != null)
         {
+            Debug.Log(hitInfo.name);
             Instantiate(ImpactEffect, transform.position, transform.rotation);
-            _objectPool.RemoveObject("Bullet", gameObject);
+            gameObject.SetActive(false);
+            Destroy(gameObject);
         }
     }
 }

@@ -1,13 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using System;
+﻿using UnityEngine;
 
-
-public class Enemy : MonoBehaviour
+public class Enemy : MonoBehaviour, IShootable
 {
     public float Speed;
     public Rigidbody2D EnemyBody;
+    public Collider2D EnemyBodyCollider;
     public GameObject RightWallCollider;
     public GameObject LeftWallCollider;
     public float Hitpoints;
@@ -15,24 +12,23 @@ public class Enemy : MonoBehaviour
     public Transform DamageNumberSpawnPoint;
     public GameObject DeathEffect;
 
-    void Start()
+    private void Start()
     {
-
     }
 
-    void Update()
+    private void Update()
     {
-        // move the enemy 
+        // move the enemy
         EnemyBody.velocity = new Vector2(10f * Speed, EnemyBody.velocity.y);
     }
 
-    void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.name == "Foreground")
         {
             Speed = Speed * -1;
         }
-        if (collision.gameObject.name == "Boolet(Clone)")
+        if (collision.GetComponent<Bullet>() != null)
         {
             TakeDamage(collision.gameObject);
         }
@@ -42,21 +38,21 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    void TakeDamage(GameObject weapon)
+    private void TakeDamage(GameObject weapon)
     {
         var bullet = weapon.GetComponent<Bullet>();
         ShowDamageNumber(bullet.Damage);
         ApplyHitpoints(bullet.Damage);
     }
 
-    void ShowDamageNumber(float damageAmount)
+    private void ShowDamageNumber(float damageAmount)
     {
         var damageNumberPrefab = Instantiate(DamageNumberPrefab, DamageNumberSpawnPoint.position, DamageNumberSpawnPoint.rotation);
         var damageNumber = damageNumberPrefab.GetComponent<DamageNumber>();
         damageNumber.DamageAmount = damageAmount;
     }
 
-    void ApplyHitpoints(float damageAmount)
+    private void ApplyHitpoints(float damageAmount)
     {
         Hitpoints = Hitpoints - damageAmount;
         if (Hitpoints <= 0)
