@@ -12,11 +12,11 @@ public class Bullet : MonoBehaviour
     public float Range = 0f;
     public float Damage = 0f;
 
-    private ObjectPool _objectPool;
+    // Special bullet attributes
+    public bool IsCriticalHit = false;
 
     private void Start()
     {
-        _objectPool = ObjectPool.Instance;
         StartPosition = transform.position;
         MoveBullet();
         PointBulletInMovementDirection();

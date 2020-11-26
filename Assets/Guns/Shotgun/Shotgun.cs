@@ -4,15 +4,6 @@ public class Shotgun : GunBase
 {
     public float NumberOfBullets = 0f;
 
-    // Update is called once per frame
-    public override void Update()
-    {
-        if (Input.GetButton("Fire1"))
-        {
-            Shoot();
-        }
-    }
-
     public override void Shoot()
     {
         if (Clip.IsEmpty)

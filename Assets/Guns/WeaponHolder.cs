@@ -14,7 +14,31 @@ public class WeaponHolder : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        // HandlePlayerInput();
+    }
+
+    public void Use()
+    {
+        var selectedWeapon = transform.GetChild(SelectedWeapon);
+        selectedWeapon.GetComponent<GunBase>().Shoot();
+    }
+
+    public void CycleWeapons()
+    {
+        if (SelectedWeapon != WeaponCount)
+        {
+            SelectedWeapon++;
+        }
+        else
+        {
+            SelectedWeapon = 0;
+        }
+        SetActiveWeapon();
+    }
+
+    public void EquipWeapon(int weapon)
+    {
+        SelectedWeapon = weapon;
+        SetActiveWeapon();
     }
 
     private void SetActiveWeapon()
@@ -26,24 +50,6 @@ public class WeaponHolder : MonoBehaviour
         {
             weapon.gameObject.SetActive(weaponIndex == SelectedWeapon);
             weaponIndex++;
-        }
-    }
-
-    public void Use()
-    {
-        var selectedWeapon = transform.GetChild(SelectedWeapon);
-        selectedWeapon.GetComponent<GunBase>().Shoot();
-    }
-
-    private void CycleWeapons()
-    {
-        if (SelectedWeapon != WeaponCount)
-        {
-            SelectedWeapon++;
-        }
-        else
-        {
-            SelectedWeapon = 0;
         }
     }
 }

@@ -11,7 +11,7 @@
                     "id": "7c5abd77-8145-412d-9556-f6c65c74efbe",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "Press"
                 },
                 {
                     "name": "Jump",
@@ -34,6 +34,14 @@
                     "type": "Value",
                     "id": "d58436a4-8df7-4292-993f-c8f271bab651",
                     "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "CycleWeapons",
+                    "type": "Button",
+                    "id": "ae600973-ea62-46dc-af11-5590769a6b72",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
                 }
@@ -80,6 +88,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "90005c87-fb61-46de-bda5-96520a83d8d0",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CycleWeapons",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

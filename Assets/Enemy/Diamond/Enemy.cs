@@ -41,15 +41,20 @@ public class Enemy : MonoBehaviour, IShootable
     private void TakeDamage(GameObject weapon)
     {
         var bullet = weapon.GetComponent<Bullet>();
-        ShowDamageNumber(bullet.Damage);
+        ShowDamageNumber(bullet);
         ApplyHitpoints(bullet.Damage);
     }
 
-    private void ShowDamageNumber(float damageAmount)
+    private void ShowDamageNumber(Bullet bullet)
     {
         var damageNumberPrefab = Instantiate(DamageNumberPrefab, DamageNumberSpawnPoint.position, DamageNumberSpawnPoint.rotation);
         var damageNumber = damageNumberPrefab.GetComponent<DamageNumber>();
-        damageNumber.DamageAmount = damageAmount;
+        damageNumber.DamageAmount = bullet.Damage;
+        if (bullet.IsCriticalHit)
+        {
+            damageNumber.DamageText.fontStyle = FontStyle.Bold;
+            damageNumber.DamageText.color = Color.yellow;
+        }
     }
 
     private void ApplyHitpoints(float damageAmount)
