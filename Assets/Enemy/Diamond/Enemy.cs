@@ -49,7 +49,7 @@ public class Enemy : MonoBehaviour, IShootable
     {
         var damageNumberPrefab = Instantiate(DamageNumberPrefab, DamageNumberSpawnPoint.position, DamageNumberSpawnPoint.rotation);
         var damageNumber = damageNumberPrefab.GetComponent<DamageNumber>();
-        damageNumber.DamageAmount = bullet.Damage;
+        damageNumber.DamageAmount = bullet.Damage.ToString();
         if (bullet.IsCriticalHit)
         {
             damageNumber.DamageText.fontStyle = FontStyle.Bold;

@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class DamageNumber : MonoBehaviour
 {
-    public float DamageAmount;
+    public string DamageAmount;
     public Text DamageText;
     public Rigidbody2D rb;
 
@@ -13,7 +13,7 @@ public class DamageNumber : MonoBehaviour
 
     private void Start()
     {
-        DamageText.text = DamageAmount.ToString();
+        DamageText.text = DamageAmount;
         MoveDamageText();
     }
 

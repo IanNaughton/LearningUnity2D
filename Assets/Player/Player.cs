@@ -3,6 +3,7 @@
 public class Player : MonoBehaviour
 {
     public PlayerController controller;
+    public WeaponHolder weaponHolder;
 
     public float runSpeed = 40f;
     public float horizontalMovement = 0f;
@@ -27,5 +28,14 @@ public class Player : MonoBehaviour
     {
         controller.Move(horizontalMovement * runSpeed * Time.fixedDeltaTime, false, jump);
         jump = false;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        var crate = collision.gameObject.GetComponent<Crate>();
+        if (crate != null)
+        {
+            weaponHolder.EquipWeapon(crate.WeaponType);
+        }
     }
 }

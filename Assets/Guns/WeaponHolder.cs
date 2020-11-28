@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class WeaponHolder : MonoBehaviour
 {
@@ -35,10 +36,13 @@ public class WeaponHolder : MonoBehaviour
         SetActiveWeapon();
     }
 
-    public void EquipWeapon(int weapon)
+    public void EquipWeapon(Type weaponType)
     {
-        SelectedWeapon = weapon;
-        SetActiveWeapon();
+        foreach(Transform weapon in transform)
+        {
+            var weaponToEquip = weapon.GetComponent(weaponType);
+            weapon.gameObject.SetActive(weaponToEquip != null); 
+        }
     }
 
     private void SetActiveWeapon()
