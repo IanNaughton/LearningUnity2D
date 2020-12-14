@@ -24,10 +24,6 @@ public class Enemy : MonoBehaviour, IShootable
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.name == "Foreground")
-        {
-            Speed = Speed * -1;
-        }
         if (collision.GetComponent<Bullet>() != null)
         {
             TakeDamage(collision.gameObject);

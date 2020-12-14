@@ -5,9 +5,10 @@ using UnityEngine;
 
 public class Crate : MonoBehaviour
 {
-    public GameObject DamageNumberPrefab;
-    public Transform DamageNumberSpawnPoint;
+    public GameObject WeaponNamePrefab;
+    public Transform WeaponNameSpawnPoint;
     public Type WeaponType;
+    public GameState gameState;
     private List<Type> WeaponTypes => new List<Type> {
         typeof(AK47),
         typeof(M4),
@@ -25,12 +26,14 @@ public class Crate : MonoBehaviour
     {
         if (collision.gameObject.name == "Player")
         {
-            var damageNumberPrefab = Instantiate(DamageNumberPrefab, DamageNumberSpawnPoint.position, DamageNumberSpawnPoint.rotation);
-            var damageNumber = damageNumberPrefab.GetComponent<DamageNumber>();
+            var weaponNamePrefab = Instantiate(WeaponNamePrefab, WeaponNameSpawnPoint.position, WeaponNameSpawnPoint.rotation);
+            var damageNumber = weaponNamePrefab.GetComponent<DamageNumber>();
             damageNumber.DamageAmount = WeaponType.ToString();
             damageNumber.RightDriftMax = 0;
             damageNumber.LeftDriftMax = 0;
+            damageNumber.DamageText.fontSize = 320;
             Destroy(gameObject);
+            gameState.CrateCollected();
         }
     }
 }

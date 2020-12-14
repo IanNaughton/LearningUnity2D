@@ -42,6 +42,10 @@ public class WeaponHolder : MonoBehaviour
         {
             var weaponToEquip = weapon.GetComponent(weaponType);
             weapon.gameObject.SetActive(weaponToEquip != null); 
+            if (weaponToEquip != null)
+            {
+                SelectedWeapon = weapon.GetSiblingIndex();
+            }
         }
     }
 

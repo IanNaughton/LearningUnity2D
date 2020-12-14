@@ -61,7 +61,7 @@ public class Bullet : MonoBehaviour
         var hitObject = hitInfo.gameObject.GetComponent<IShootable>();
         if (hitObject != null)
         {
-            Debug.Log(hitInfo.name);
+            Debug.Log(hitInfo.gameObject.name);
             Instantiate(ImpactEffect, transform.position, transform.rotation);
             gameObject.SetActive(false);
             Destroy(gameObject);

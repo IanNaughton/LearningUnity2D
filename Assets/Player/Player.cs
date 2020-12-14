@@ -17,11 +17,6 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        //horizontalMovement = Input.GetAxisRaw("Horizontal") * runSpeed;
-        //if (Input.GetButtonDown("Jump"))
-        //{
-        //    jump = true;
-        //}
     }
 
     private void FixedUpdate()
@@ -37,5 +32,15 @@ public class Player : MonoBehaviour
         {
             weaponHolder.EquipWeapon(crate.WeaponType);
         }
+        var enemy = collision.gameObject.GetComponent<Enemy>();
+        if (enemy != null)
+        {
+            DestroyPlayer();
+        }    
+    }
+
+    private void DestroyPlayer()
+    {
+        Destroy(gameObject);
     }
 }
