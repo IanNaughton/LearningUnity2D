@@ -4,6 +4,7 @@ public class Player : MonoBehaviour
 {
     public PlayerController controller;
     public WeaponHolder weaponHolder;
+    public Animator playerAnimator;
 
     public float runSpeed = 40f;
     public float horizontalMovement = 0f;
@@ -22,6 +23,7 @@ public class Player : MonoBehaviour
     private void FixedUpdate()
     {
         controller.Move(horizontalMovement * runSpeed * Time.fixedDeltaTime, false, jump);
+        playerAnimator.SetBool("IsMoving", horizontalMovement != 0);
         jump = false;
     }
 

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6105605528442569399}
   - component: {fileID: 6105605528442569398}
+  - component: {fileID: 1347679703015254668}
   m_Layer: 0
   m_Name: Spawner
   m_TagString: Untagged
@@ -45,7 +46,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ThingToSpawn: {fileID: 3881582555509431193, guid: 08aaf91ebed0a124cb0e12c564b4ab62,
     type: 3}
-  WaveDuration: 30
+  WaveDuration: 5
   NumberOfInstances: 3
   TimeBetweenInstance: 0.5
-  WaveDirection: 0
+  WaveDirection: -1
+--- !u!114 &1347679703015254668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6105605528442569396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63c7fb3d9bd6c994ba7c0caba3c36eb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnPoint: {fileID: 6105605528442569399}
+  secondsBeforeSpawn: 10
+  speedMultiplier: 1.5
+  aggroEnemy: {fileID: 3881582555509431193, guid: 08aaf91ebed0a124cb0e12c564b4ab62,
+    type: 3}

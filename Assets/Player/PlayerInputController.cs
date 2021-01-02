@@ -23,7 +23,18 @@ public class PlayerInputController : MonoBehaviour
 
     public void OnJump(CallbackContext ctx)
     {
-        Player.jump = true;
+        switch (ctx.phase) {
+            case InputActionPhase.Started:
+            case InputActionPhase.Performed:
+                Player.jump = true;
+                break;
+            case InputActionPhase.Canceled:
+                Player.jump = false;
+                break;
+            default:
+                Player.jump = false;
+                break;
+        }
     }
 
     public void OnShoot(CallbackContext ctx)
@@ -40,6 +51,11 @@ public class PlayerInputController : MonoBehaviour
                 IsShooting = false;
                 break;
         }
+    }
+
+    public void OnReload(CallbackContext ctx)
+    {
+        WeaponHolder.Reload();
     }
 
     public void OnCycleWeapons(CallbackContext ctx)

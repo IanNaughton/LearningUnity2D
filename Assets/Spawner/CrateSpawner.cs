@@ -51,8 +51,9 @@ public class CrateSpawner : MonoBehaviour
         var nextSpawn = 0;
         while (nextSpawn == previousSpawn)
         {
-            Random.Range(0, SpawnPoints.Count - 1);
+            nextSpawn = Random.Range(0, SpawnPoints.Count - 1);
         }
+        previousSpawn = nextSpawn;
         return nextSpawn;
     }
 }

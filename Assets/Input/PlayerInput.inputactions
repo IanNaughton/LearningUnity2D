@@ -44,6 +44,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "Reload",
+                    "type": "Button",
+                    "id": "7c2fb349-b236-4f06-aa68-e78b1ab95a29",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -85,7 +93,7 @@
                     "id": "3bf2310b-700e-4892-8480-0db865470d1e",
                     "path": "<Gamepad>/leftStick/x",
                     "interactions": "",
-                    "processors": "",
+                    "processors": "AxisDeadzone",
                     "groups": "",
                     "action": "Move",
                     "isComposite": false,
@@ -99,6 +107,44 @@
                     "processors": "",
                     "groups": "",
                     "action": "CycleWeapons",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f112677f-d504-4953-9726-8884e4c3d3c0",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Reload",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Menu",
+            "id": "cf952569-2f1a-4962-96a5-b6e3874fbcdd",
+            "actions": [
+                {
+                    "name": "Yes",
+                    "type": "Button",
+                    "id": "0bd90aeb-5ddc-413d-87ab-f36fd202ab91",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "d2efb340-18db-4c8a-b1e2-645bb445356a",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Yes",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

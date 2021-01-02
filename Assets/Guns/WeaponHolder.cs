@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class WeaponHolder : MonoBehaviour
 {
-    private int SelectedWeapon = 0;
+    public int SelectedWeapon = 0;
     int WeaponCount => transform.childCount - 1;
 
     // Start is called before the first frame update
@@ -21,6 +21,12 @@ public class WeaponHolder : MonoBehaviour
     {
         var selectedWeapon = transform.GetChild(SelectedWeapon);
         selectedWeapon.GetComponent<GunBase>().Shoot();
+    }
+
+    internal void Reload()
+    {
+        var selectedWeapon = transform.GetChild(SelectedWeapon);
+        selectedWeapon.GetComponent<GunBase>().Reload();
     }
 
     public void CycleWeapons()

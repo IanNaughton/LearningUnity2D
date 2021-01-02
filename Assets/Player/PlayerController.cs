@@ -112,12 +112,14 @@ public class PlayerController : MonoBehaviour
             if (move > 0 && !m_FacingRight)
             {
                 // ... flip the player.
+                Debug.Log($"Player moving {move} and facing {(m_FacingRight ? "Right" : "Left")}");
                 Flip();
             }
             // Otherwise if the input is moving the player left and the player is facing right...
             else if (move < 0 && m_FacingRight)
             {
                 // ... flip the player.
+                Debug.Log($"Player moving {move} and facing {(m_FacingRight ? "Right" : "Left")}");
                 Flip();
             }
         }
