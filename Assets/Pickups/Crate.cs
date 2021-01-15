@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,6 +8,9 @@ public class Crate : MonoBehaviour
     public Transform WeaponNameSpawnPoint;
     public Type WeaponType;
     public GameState gameState;
+    public AudioSource crateAudio;
+    public static int lastWeaponIndex;
+
     private List<Type> WeaponTypes => new List<Type> {
         typeof(AK47),
         typeof(M4),
@@ -18,9 +20,15 @@ public class Crate : MonoBehaviour
     private void Start()
     {
         var weaponIndex = UnityEngine.Random.Range(0, WeaponTypes.Count);
-        WeaponType = WeaponTypes[weaponIndex];
-    }
 
+        // We don't want to spawn two of the same weapon back-to-back
+        while (weaponIndex == lastWeaponIndex)
+        {
+            weaponIndex = UnityEngine.Random.Range(0, WeaponTypes.Count);
+        }
+        WeaponType = WeaponTypes[weaponIndex];
+        lastWeaponIndex = weaponIndex;
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -32,8 +40,16 @@ public class Crate : MonoBehaviour
             damageNumber.RightDriftMax = 0;
             damageNumber.LeftDriftMax = 0;
             damageNumber.DamageText.fontSize = 320;
-            Destroy(gameObject);
             gameState.CrateCollected();
+            PlayCrateSound();
+            Destroy(gameObject, crateAudio.clip.length);
         }
+    }
+
+    private void PlayCrateSound()
+    {
+        gameObject.GetComponent<SpriteRenderer>().enabled = false;
+        gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        crateAudio.Play();
     }
 }

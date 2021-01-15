@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-
-public class Shotgun : GunBase
+﻿public class Shotgun : GunBase
 {
     public float NumberOfBullets = 0f;
 
@@ -36,5 +34,6 @@ public class Shotgun : GunBase
             bullet.RotationMin = BulletRotationMin;
             bullet.Damage = Damage;
         }
+        base.PlayShootSound();
     }
 }

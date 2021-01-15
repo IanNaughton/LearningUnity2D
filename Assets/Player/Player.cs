@@ -5,6 +5,7 @@ public class Player : MonoBehaviour
     public PlayerController controller;
     public WeaponHolder weaponHolder;
     public Animator playerAnimator;
+    public AudioSource playerAudio;
 
     public float runSpeed = 40f;
     public float horizontalMovement = 0f;
@@ -22,6 +23,7 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
+        PlayJumpSound();
         controller.Move(horizontalMovement * runSpeed * Time.fixedDeltaTime, false, jump);
         playerAnimator.SetBool("IsMoving", horizontalMovement != 0);
         jump = false;
@@ -38,7 +40,15 @@ public class Player : MonoBehaviour
         if (enemy != null)
         {
             DestroyPlayer();
-        }    
+        }
+    }
+
+    private void PlayJumpSound()
+    {
+        if (jump)
+        {
+            playerAudio.Play();
+        }
     }
 
     private void DestroyPlayer()

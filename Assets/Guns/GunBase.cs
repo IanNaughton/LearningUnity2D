@@ -7,6 +7,8 @@ public class GunBase : MonoBehaviour
     public Chamber Chamber;
     public Magazine Clip;
     public BulletPipeline BulletPipeline;
+    public AudioSource shootAudioSource;
+    public AudioSource reloadAudioSource;
     public float BulletSpeed = 0f;
     public float BulletRange = 0f;
     public float BulletRotationMax = 0f;
@@ -18,6 +20,7 @@ public class GunBase : MonoBehaviour
     {
         if (Clip.IsEmpty)
         {
+            PlayReloadSound();
             StartCoroutine(Clip.Reload());
         }
 
@@ -27,6 +30,7 @@ public class GunBase : MonoBehaviour
         {
             StartCoroutine(Chamber.Shoot(Clip));
             CreateBullet();
+            PlayShootSound();
         }
     }
 
@@ -48,8 +52,23 @@ public class GunBase : MonoBehaviour
         BulletPipeline.Fire(bullet);
     }
 
+    public virtual void PlayShootSound()
+    {
+        shootAudioSource.Play();
+    }
+
+    public virtual void PlayReloadSound()
+    {
+        if (!Clip.IsReloading)
+        {
+            reloadAudioSource.Play();
+
+        }
+    }
+
     public virtual void Reload()
     {
+        PlayReloadSound();
         StartCoroutine(Clip.Reload());
     }
 }

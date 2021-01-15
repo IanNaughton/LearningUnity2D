@@ -50,6 +50,7 @@ public class Enemy : MonoBehaviour, IShootable
         {
             damageNumber.DamageText.fontStyle = FontStyle.Bold;
             damageNumber.DamageText.color = Color.yellow;
+            SoundManager.Instance.PlayCriticalHit();
         }
     }
 

@@ -25,9 +25,9 @@ public class ObjectPool : MonoBehaviour
     // that I would argue makes this implementation brittle.
     private void Awake()
     {
-        Debug.Log("Waking Up!");
+        //Debug.Log("Waking Up!");
         Instance = this;
-        Debug.Log("Woke AF");
+        //Debug.Log("Woke AF");
     }
 
     public Dictionary<string, Queue<GameObject>> PooledObjects;
@@ -51,12 +51,12 @@ public class ObjectPool : MonoBehaviour
 
     public GameObject SpawnObject(string tag, Vector2 position, Quaternion rotation)
     {
-        Debug.Log($"Spawning Object with tag {tag}");
+        //Debug.Log($"Spawning Object with tag {tag}");
         var objectToSpawn = PooledObjects[tag].Dequeue();
         objectToSpawn.SetActive(true);
         objectToSpawn.transform.position = position;
         objectToSpawn.transform.rotation = rotation;
-        Debug.Log($"Spawned object {objectToSpawn.name}");
+        //Debug.Log($"Spawned object {objectToSpawn.name}");
 
         PooledObjects[tag].Enqueue(objectToSpawn);
         return objectToSpawn;

@@ -23,14 +23,17 @@ public class PlayerInputController : MonoBehaviour
 
     public void OnJump(CallbackContext ctx)
     {
-        switch (ctx.phase) {
+        switch (ctx.phase)
+        {
             case InputActionPhase.Started:
             case InputActionPhase.Performed:
                 Player.jump = true;
                 break;
+
             case InputActionPhase.Canceled:
                 Player.jump = false;
                 break;
+
             default:
                 Player.jump = false;
                 break;
@@ -39,14 +42,17 @@ public class PlayerInputController : MonoBehaviour
 
     public void OnShoot(CallbackContext ctx)
     {
-        switch (ctx.phase) {
+        switch (ctx.phase)
+        {
             case InputActionPhase.Started:
             case InputActionPhase.Performed:
                 IsShooting = true;
                 break;
+
             case InputActionPhase.Canceled:
                 IsShooting = false;
                 break;
+
             default:
                 IsShooting = false;
                 break;
